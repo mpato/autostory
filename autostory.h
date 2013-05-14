@@ -1,38 +1,51 @@
 #ifndef AUTOSTORY_H
 #define AUTOSTORY_H
 
-struct character;
-struct location;
-struct nation;
+struct character_t;
+struct location_t;
+struct nation_t;
 
-struct nation
+struct nation_t
 {
-  character *ruler;
-  location *lands;
-}
+  int id;
+  character_t *ruler;
+  location_t *lands;
+};
 
-struct location
+struct location_t
 {
-  character *owner;
+  int id;
+  character_t *owner;
   int size;
-  location *neighboors;
-}
+  location_t *neighboors;
+};
 
-struct relationship
+struct relationship_t
 {
-  character *a, *b;
+  character_t *a, *b;
   int type;
-}
+};
 
-struct character
+struct character_t
 {
+  int id;
   int life;
   int rank;
   int strength;
   int age;
   int gender;
-  location *lands;
-  nation *nation;
-  relationship *relationships;
-}
+  location_t *lands;
+  nation_t *nation;
+  relationship_t *relationships;
+  char first_name[25];
+  char middle_name[25];
+  char last_name[50];
+};
+
+struct state_t {
+  character_t *characters;
+  nation_t *nations;
+  location_t *locations;
+};
+
 #endif
