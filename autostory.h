@@ -5,6 +5,12 @@ struct character_t;
 struct location_t;
 struct nation_t;
 
+#define GENDER_MALE 0
+#define GENDER_FEMALE 1
+#define ALIGN_GOOD 0
+#define ALIGN_NEUTRAL 1
+#define ALIGN_EVIL 2
+
 struct nation_t
 {
   int id;
@@ -34,6 +40,7 @@ struct character_t
   int strength;
   int age;
   int gender;
+  int alignment;
   location_t *lands;
   nation_t *nation;
   relationship_t *relationships;
@@ -43,6 +50,10 @@ struct character_t
 };
 
 struct state_t {
+  int round;
+  int max_characters, nr_characters;
+  int max_nations, nr_nations;
+  int max_locations, nr_locations;
   character_t *characters;
   nation_t *nations;
   location_t *locations;
