@@ -1,2 +1,2 @@
 main: *.cpp *.h
-	g++ *.cpp -librealine -o main
+	g++ *.cpp -lreadline -o main
